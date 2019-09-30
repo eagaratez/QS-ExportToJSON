@@ -1,5 +1,6 @@
-# QS-ExportToJSON
-Qlik Sense Extension to Export data to json.
+# QS-ExportToXML
+Qlik Sense Extension to Export data to XML.
+FORK BASED ON QS-ExportToJSON
 
 Note : If you are exporting huge volume of data then it will take some time.
 
