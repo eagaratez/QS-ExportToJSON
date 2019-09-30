@@ -1,8 +1,15 @@
 /*globals define*/
 
+define( [
+    "qlik", 
+    "jquery", 
+    "text!./style.css",
+    './properties',
+    './filesaver',
+    './json2xml',
+],
 
-
-define( ["qlik", "jquery", "text!./style.css",'./properties','./filesaver'], function ( qlik, $, cssContent, props,filesaver) {
+function ( qlik, $, cssContent, props,filesaver) {
 	'use strict';
 	$( "<style>" ).html( cssContent ).appendTo( "head" );
 	
@@ -156,10 +163,11 @@ define( ["qlik", "jquery", "text!./style.css",'./properties','./filesaver'], fun
 									
 							jsonData[jsonTableName]= dataArray;
 							//console.log("dataArray",dataArray);
-							var content = JSON.stringify(jsonData);
+							var content = json2xml(JSON.stringify(jsonData),tab);
 							
 							// any kind of extension (.txt,.cpp,.cs,.bat)
-							var filename = jsonTableName+".json";
+                            //var filename = jsonTableName+".json";
+                            var filename = jsonTableName+".xml";
 
 							var blob = new Blob([content], {
 							 type: "text/plain;charset=utf-8"
